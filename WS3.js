@@ -16,9 +16,4 @@
 //   }
 // }
 let os = require("os");
-let message = "Платформа – ";
-
-function main(){
-   console.log(message + os.platform());
-}
-main();
+console.log('Платформа - ' + os.platform());

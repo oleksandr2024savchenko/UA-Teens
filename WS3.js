@@ -6,12 +6,19 @@
 //   }
 // }
 // console.log(JSON.parse(JSON.stringify(obj)));
+// function newFunction() {
+//   for (let i = 0; i < 10; i++) {
+//     if (i == 3) {
+//       continue;
+//     }
+//     console.log(i);
 
+//   }
+// }
+let os = require("os");
+let message = "Платформа – ";
 
-for (let i = 0; i < 10; i++) {
-  if (i == 3) {
-    continue
-  }
-  console.log(i);
-  
+function main(){
+   console.log(message + os.platform());
 }
+main();

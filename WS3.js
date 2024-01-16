@@ -15,5 +15,5 @@
 
 //   }
 // }
-let os = require("os");
+import os from "os";
 console.log('Платформа - ' + os.platform());

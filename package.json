@@ -4,12 +4,14 @@
   "description": "",
   "main": "WS3.js",
   "scripts": {
+    "start": "nodemon WS3.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3"
   }
 }

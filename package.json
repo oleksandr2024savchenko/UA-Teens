@@ -7,6 +7,7 @@
     "start": "nodemon WS3.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "http.proxySupport": "off",
   "author": "",
   "license": "ISC",
   "type": "module",

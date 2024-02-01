@@ -1,5 +1,0 @@
-{"name":"ewe","surname":"ewe","age":"212","email":"ssdd","password":"wqwq"}
-{"name":"ewe","surname":"ewe","age":"212","email":"ssdd","password":"wqwq"}
-{"name":"ewe","surname":"ewe","age":"212","email":"ssdd","password":"wqwq"}
-{"name":"ewe","surname":"ewe","age":"212","email":"ssdd","password":"wqwq"}
-{"name":"ewe","surname":"ewe","age":"212","email":"ssdd","password":"wqwq"}

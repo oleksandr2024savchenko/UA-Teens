@@ -11,6 +11,7 @@ function draw(){
         baloon.drawBaloon()
         baloon.run(Game.score)
         if (baloon.y <= baloon.size/2 && baloon.color !== 'red' && baloon.color !== 'black' && baloon.color !== 'yellow' ) {
+            clearInterval(interval)
             background('red')
             noLoop();
             Game.baloons.length = 0;
@@ -51,13 +52,41 @@ function draw(){
 
 
 }
+function sendStat() {
+    let statistic = {
+        blue: Game.countOfBlue,
+        black: Game.countOfBlack,
+        red: Game.countOfRed,
+        green: Game.countOfGreen,
+        yellow: Game.countOfYellow,
+        mouseClick: Game.countOfMouseClick,
+    }
+    fetch('/statistic', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+          },
+        body: JSON.stringify(statistic)
+    })
 
+}
+let interval;
+
+setInterval(()=>{
+    sendStat()
+}, 5000)
 
 
 
 class Game{
     static baloons = []
     static score = 0
+    static countOfBlue = 0
+    static countOfRed = 0
+    static countOfBlack = 0
+    static countOfGreen= 0
+    static countOfYellow = 0
+    static countOfMouseClick = 0
 
     static addPauseButton(){
         let pausen = new Pause()
@@ -106,11 +135,14 @@ class Game{
     }
 }
 function mousePressed(){
+    
     Game.checkBaloon()
     if (!isLooping()){
         Game.score = 0 
         loop()
+        interval
     }
+    Game.countOfMouseClick += 1;
 }
 
 class CommonBaloon{
@@ -119,6 +151,7 @@ class CommonBaloon{
         this.y = random(height - 10, height + 30)
         this.size = size
         this.color = color
+        
     }
 
     drawBaloon(){
@@ -139,6 +172,7 @@ class CommonBaloon{
     burst(index){
         Game.score += 1
         Game.baloons.splice(index , 1)
+        Game.countOfBlue += 1
     }
 } 
 
@@ -149,6 +183,8 @@ class UniqueBaloon extends CommonBaloon{
     burst(index){
         Game.score += 10
         Game.baloons.splice(index , 1)
+        Game.countOfGreen += 1
+    
     }
 }
 
@@ -159,6 +195,7 @@ class EvilBaloon extends CommonBaloon{
     burst(index){
         Game.score -= 10
         Game.baloons.splice(index , 1)
+        Game.countOfRed += 1
     }
 }
 
@@ -169,6 +206,7 @@ class DeathBaloon extends CommonBaloon{
     burst(index){
         Game.score -= 100
         Game.baloons.splice(index, 1)
+        Game.countOfBlack += 1
     }
 }
 
@@ -182,5 +220,6 @@ class LuckyBaloon extends CommonBaloon{
     burst(index){
         Game.score += 125
         Game.baloons.splice(index , 1)
+        Game.countOfYellow+= 1
     }
 }

@@ -72,9 +72,9 @@ function sendStat() {
 }
 let interval;
 
-setInterval(()=>{
+interval = setInterval(()=>{
     sendStat()
-}, 5000)
+}, 2000)
 
 
 
@@ -140,7 +140,9 @@ function mousePressed(){
     if (!isLooping()){
         Game.score = 0 
         loop()
-        interval
+        interval = setInterval(()=>{
+            sendStat()
+        }, 2000)
     }
     Game.countOfMouseClick += 1;
 }

@@ -1,0 +1,23 @@
+{
+  "name": "finance-news-bot",
+  "version": "1.0.0",
+  "description": "Telegram-бот: перевірені новини з фокусом на фінанси + пояснення українською",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/index.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/index.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.10.0",
+    "@grammyjs/auto-retry": "^2.0.2",
+    "grammy": "^1.46.0",
+    "rss-parser": "^3.13.0",
+    "zod": "^4.6.7"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  }
+}
